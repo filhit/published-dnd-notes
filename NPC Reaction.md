@@ -1,7 +1,11 @@
 ---
-""
+tags:
+  - rules
 ---
-|
+
+
+| 2D6 | NPC REACTION |
+|---|---|
 | 2 | Kill the PCs |
 | 3 | Injure or capture the PCs |
 | 4 | Harass or rob the PCs |
