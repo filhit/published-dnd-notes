@@ -1,7 +1,7 @@
-site_name: $site_name # Change this to your site name
-site_description: $site_description
-site_url: $site_url # Change this to your site URL
-site_author: $site_author
+site_name: D&D Notes # Change this to your site name
+site_description: Заметки плюса по играм
+site_url: https://dnd-notes.filhit.link # Change this to your site URL
+site_author: filhit
 
 theme:
     name: 'material'
