@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"dg-permalink":"miami-files","permalink":"/miami-files/"}
+{"dg-publish":true,"permalink":"/Miami Files/"}
 ---
 
 Кампания по [[Dresden files\|Dresden files]]
