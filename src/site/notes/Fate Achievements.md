@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/Fate Achievements/","tags":["секрет"]}
+{"dg-publish":true,"permalink":"/Fate Achievements/","tags":["rules"]}
 ---
 
 
