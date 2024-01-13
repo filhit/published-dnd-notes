@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/Fate Achievements/","tags":["rules"]}
+{"dg-publish":true,"permalink":"/fate-achievements/","tags":["rules"]}
 ---
 
 
