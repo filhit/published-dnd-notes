@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/Publish Убеш/","tags":["publish-map"]}
+{"dg-publish":true,"permalink":"/publish-ubesh/","tags":["publish-map"]}
 ---
 
 
