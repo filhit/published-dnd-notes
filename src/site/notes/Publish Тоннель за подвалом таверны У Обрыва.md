@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/Publish Тоннель за подвалом таверны У Обрыва/","tags":["publish-map"]}
+{"dg-publish":true,"permalink":"/publish-tonnel-za-podvalom-taverny-u-obryva/","tags":["publish-map"]}
 ---
 
 <p style="width: 100%; height: 400px; overflow: scroll">
