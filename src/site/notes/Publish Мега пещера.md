@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/Publish Мега пещера/","tags":["publish-map"]}
+{"dg-publish":true,"permalink":"/publish-mega-peshhera/","tags":["publish-map"]}
 ---
 
 <p style="width: 100%; height: 400px; overflow: scroll">
