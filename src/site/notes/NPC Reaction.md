@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/NPC Reaction/","tags":["rules"]}
+{"dg-publish":true,"permalink":"/npc-reaction/","tags":["rules"]}
 ---
 
 
