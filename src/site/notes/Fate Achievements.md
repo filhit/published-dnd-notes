@@ -1,10 +1,5 @@
 ---
-dg-publish: true
-tags:
-  - rules
-permalink: /fate-achievements/
-dgPassFrontmatter: true
-
+{"dg-publish":true,"permalink":"/fate-achievements/","tags":["rules"]}
 ---
 
 
