@@ -1,4 +1,5 @@
 body {
+
     /***
       ADD YOUR CUSTOM STYLIING HERE. (INSIDE THE body {...} section.)
       IT WILL TAKE PRECEDENCE OVER THE STYLING IN THE STYLE.CSS FILE.
@@ -14,4 +15,11 @@ body {
         --callout-color: 0, 150, 212;
         --callout-icon: lucide-dices;
     }
+
+    &.markdown-preview-section.markdown-preview-section h1 {
+        line-height: 1;
+    }
+
+    --font-title: 'Open Sans', cursive;
+    --h1-size: 2.5em;
 }
