@@ -169,6 +169,10 @@ p > code {
     --callout-color: 158, 158, 158;
     --callout-icon: lucide-quote;
 }
+.callout[data-callout="dice"] {
+    --callout-color: 50, 50, 255;
+    --callout-icon: lucide-dices;
+}
 .callout {
     overflow: hidden;
     border-style: solid;
