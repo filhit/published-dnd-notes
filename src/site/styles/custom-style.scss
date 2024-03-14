@@ -10,4 +10,8 @@ body {
     //  h1 {
     //   color: black;
     //  }
+    .callout[data-callout="dice"] {
+        --callout-color: 50, 50, 255;
+        --callout-icon: lucide-dices;
+    }
 }
