@@ -1,5 +1,5 @@
 ---
-{"tags":["foundry"],"dg-publish":true,"permalink":"/kak-konvertirovat-muzyku-v-ogg/","dgPassFrontmatter":true}
+{"dg-publish":true,"permalink":"/kak-konvertirovat-muzyku-v-ogg/","tags":["foundry"]}
 ---
 
 
