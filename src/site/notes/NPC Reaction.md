@@ -1,5 +1,10 @@
 ---
-{"dg-publish":true,"permalink":"/npc-reaction/","tags":["rules"]}
+tags:
+  - rules
+dg-publish: true
+permalink: /npc-reaction/
+dgPassFrontmatter: true
+
 ---
 
 
