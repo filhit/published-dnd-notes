@@ -1,11 +1,5 @@
 ---
-dg-publish: true
-dg-home: true
-permalink: /digital-garden-home/
-tags:
-  - gardenEntry
-dgPassFrontmatter: true
-
+{"dg-publish":true,"permalink":"/digital-garden-home/","tags":["gardenEntry"]}
 ---
 
 [[Дневник Школы приключенцев Безелота. Переплетенные судьбы\|Дневник Школы приключенцев Безелота. Переплетенные судьбы]]
