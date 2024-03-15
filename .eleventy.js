@@ -277,21 +277,6 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addFilter("link", function (str) {
     return (
       str &&
-      str.replace(/\[\[(.*?\|.*?)\]\]/g, function (match, p1) {
-        //Check if it is an embedded excalidraw drawing or mathjax javascript
-        if (p1.indexOf("],[") > -1 || p1.indexOf('"$"') > -1) {
-          return match;
-        }
-        const [fileLink, linkTitle] = p1.split("|");
-
-        return getAnchorLink(fileLink, linkTitle);
-      })
-    );
-  });
-
-  eleventyConfig.addFilter("toplink", function (str) {
-    return (
-      str &&
       str.replace(/\[\[(.*?)(?:\|(.*?))?\]\]/g, function (match, fileLink, linkTitle) {
         // Check if it is an embedded excalidraw drawing or mathjax javascript
         if (fileLink.indexOf("],[") > -1 || fileLink.indexOf('"$"') > -1) {
