@@ -1,0 +1,6 @@
+{% if userComputed.previousSession %}
+👈 {{ userComputed.previousSession | toplink | safe }}
+{%endif%}
+{% if userComputed.nextSession %}
+{{ userComputed.nextSession | toplink | safe }} 👉
+{%endif%}

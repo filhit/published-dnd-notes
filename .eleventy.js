@@ -289,6 +289,20 @@ module.exports = function (eleventyConfig) {
     );
   });
 
+  eleventyConfig.addFilter("toplink", function (str) {
+    return (
+      str &&
+      str.replace(/\[\[(.*?)(?:\|(.*?))?\]\]/g, function (match, fileLink, linkTitle) {
+        // Check if it is an embedded excalidraw drawing or mathjax javascript
+        if (fileLink.indexOf("],[") > -1 || fileLink.indexOf('"$"') > -1) {
+          return match;
+        }
+  
+        return getAnchorLink(fileLink, linkTitle || fileLink);
+      })
+    );
+  });
+
   eleventyConfig.addFilter("taggify", function (str) {
     return (
       str &&
@@ -538,6 +552,22 @@ module.exports = function (eleventyConfig) {
       closingSingleTag: "slash",
       singleTags: ["link"],
     },
+  });
+
+  eleventyConfig.on('eleventy.before', async ({ dir }) => {
+    const files = await fs.promises.readdir(dir.input, {recursive: true});
+    const markdownFiles = files.filter((file) => file.endsWith('.md'));
+    for (const file of markdownFiles) {
+      const content = await fs.promises.readFile(`${dir.input}/${file}`, 'utf-8');
+      const frontmatterRegex = /^---([\s\S]*?)---/m;
+      const match = content.match(frontmatterRegex);
+
+      if (match) {
+        const updatedFrontmatter = match[1].replace(/\\\|/g, '|');
+        const updatedContent = content.replace(match[0], `---${updatedFrontmatter}---`);
+        await fs.promises.writeFile(`${dir.input}/${file}`, updatedContent, 'utf-8');
+      }
+    }
   });
 
   userEleventySetup(eleventyConfig);
