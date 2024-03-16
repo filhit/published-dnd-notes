@@ -1,5 +1,5 @@
 ---
-{"campaign":"GG Dungeon","dg-publish":true,"dg-permalink":"gg-dungeon-journal","permalink":"/gg-dungeon-journal/","dgPassFrontmatter":true}
+{"dg-publish":true,"dg-permalink":"gg-dungeon-journal","permalink":"/gg-dungeon-journal/"}
 ---
 
 
