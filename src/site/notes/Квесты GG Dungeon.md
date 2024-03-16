@@ -1,5 +1,5 @@
 ---
-{"campaign":"GG Dungeon","dg-publish":true,"dg-permalink":"gg-dungeon-quests","permalink":"/gg-dungeon-quests/","dgPassFrontmatter":true}
+{"dg-publish":true,"dg-permalink":"gg-dungeon-quests","permalink":"/gg-dungeon-quests/"}
 ---
 
 ## Текущие квесты
