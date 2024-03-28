@@ -40,7 +40,7 @@
 
 { .block-language-dataview}
 
-```mermaid
+``` mermaid 
 ---
 displayMode: compact
 ---
