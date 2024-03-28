@@ -41,8 +41,8 @@
 { .block-language-dataview}
 
 ```mermaid
-%%{ init: { "gantt": { "displayMode": "compact" } } }%%
 gantt
+%%{ init: { "gantt": { "displayMode": "compact" } } }%%
     dateFormat YYYY-MM-DD
     section Грот Безумный
         Грот Безумный: 2022-11-26,2023-06-01
