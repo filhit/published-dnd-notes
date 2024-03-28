@@ -42,7 +42,7 @@
 
 ```mermaid
 gantt
-%%{ init: { "gantt": { "displayMode": "compact" }, "theme": "dark" } }%%
+%%{ init: { "theme": "dark", "gantt": { "displayMode": "compact" } } }%%
     dateFormat YYYY-MM-DD
     axisFormat %d %B %Y
     tickInterval 3month
