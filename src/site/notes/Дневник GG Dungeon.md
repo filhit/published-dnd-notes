@@ -106,12 +106,12 @@ gantt
 		᠎: 2023-12-14, 2024-03-09
 	section Годфри
 		᠎: 2023-08-26, 1d 
-	section Aurelia Arboreana
-		᠎: 2023-05-22, 1d 
 	section Моц Ау Ац
 		᠎: 2022-12-08, 2022-12-13
 	section Димуэргар
 		᠎: 2023-05-04, 1d
+	section Aurelia Arboreana
+		᠎: 2023-05-22, 1d 
 	section Сильвантерра
 		᠎: 2023-09-28, 1d
 ```
