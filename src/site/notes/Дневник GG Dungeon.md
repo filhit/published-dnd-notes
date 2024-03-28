@@ -44,6 +44,8 @@
 gantt
 %%{ init: { "gantt": { "displayMode": "compact" } } }%%
     dateFormat YYYY-MM-DD
+    axisFormat %d %B %Y
+    tickInterval 3month
     section Грот Безумный
         ᠎: 2022-11-26,2023-06-01
         ᠎: 2023-06-22, 1d
