@@ -40,10 +40,8 @@
 
 { .block-language-dataview}
 
-``` mermaid 
----
-displayMode: compact
----
+```mermaid 
+%%{init: { "gantt": {"displayMode": "compact"} } }%%
 gantt
     dateFormat YYYY-MM-DD
     section Грот Безумный
