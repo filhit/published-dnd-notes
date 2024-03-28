@@ -41,7 +41,7 @@
 { .block-language-dataview}
 
 ```mermaid
-%%{init: { "gantt": {"displayMode": "compact"} } }%%
+%%{ init: { "gantt": { "displayMode": "compact" } } }%%
 gantt
     dateFormat YYYY-MM-DD
     section Грот Безумный
