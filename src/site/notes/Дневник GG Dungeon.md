@@ -40,7 +40,7 @@
 
 { .block-language-dataview}
 
-```mermaid 
+```mermaid
 %%{init: { "gantt": {"displayMode": "compact"} } }%%
 gantt
     dateFormat YYYY-MM-DD
