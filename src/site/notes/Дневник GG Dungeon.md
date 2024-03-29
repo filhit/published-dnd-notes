@@ -43,7 +43,7 @@
 ## Активность по персонажам
 ```mermaid
 gantt
-%%{ init: { "gantt": { "displayMode": "compact" } } }%%
+%%{ init: { "gantt": { "displayMode": "compact", "leftPadding": 120 } } }%%
 	dateFormat YYYY-MM-DD
     axisFormat %d %B %Y
     tickInterval 3month
