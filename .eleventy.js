@@ -5,7 +5,7 @@ const matter = require("gray-matter");
 const faviconsPlugin = require("eleventy-plugin-gen-favicons");
 const tocPlugin = require("eleventy-plugin-nesting-toc");
 const { parse } = require("node-html-parser");
-const htmlMinifier = require("html-minifier");
+const htmlMinifier = require("html-minifier-terser");
 const pluginRss = require("@11ty/eleventy-plugin-rss");
 
 const { headerToId, namedHeadingsFilter } = require("./src/helpers/utils");
@@ -277,13 +277,14 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addFilter("link", function (str) {
     return (
       str &&
-      str.replace(/\[\[(.*?)(?:\|(.*?))?\]\]/g, function (match, fileLink, linkTitle) {
-        // Check if it is an embedded excalidraw drawing or mathjax javascript
-        if (fileLink.indexOf("],[") > -1 || fileLink.indexOf('"$"') > -1) {
+      str.replace(/\[\[(.*?\|.*?)\]\]/g, function (match, p1) {
+        //Check if it is an embedded excalidraw drawing or mathjax javascript
+        if (p1.indexOf("],[") > -1 || p1.indexOf('"$"') > -1) {
           return match;
         }
-  
-        return getAnchorLink(fileLink, linkTitle || fileLink);
+        const [fileLink, linkTitle] = p1.split("|");
+
+        return getAnchorLink(fileLink, linkTitle);
       })
     );
   });
@@ -380,13 +381,26 @@ module.exports = function (eleventyConfig) {
           }
         );
 
+        /* Hacky fix for callouts with only a title:
+        This will ensure callout-content isn't produced if
+        the callout only has a title, like this:
+        ```md
+        > [!info] i only have a title
+        ```
+        Not sure why content has a random <p> tag in it,
+        */
+        if (content === "\n<p>\n") {
+          content = "";
+        }
+        let contentDiv = content ? `\n<div class="callout-content">${content}</div>` : "";
+
         blockquote.tagName = "div";
         blockquote.classList.add("callout");
         blockquote.classList.add(isCollapsable ? "is-collapsible" : "");
         blockquote.classList.add(isCollapsed ? "is-collapsed" : "");
         blockquote.setAttribute("data-callout", calloutType.toLowerCase());
         calloutMetaData && blockquote.setAttribute("data-callout-metadata", calloutMetaData);
-        blockquote.innerHTML = `${titleDiv}\n<div class="callout-content">${content}</div>`;
+        blockquote.innerHTML = `${titleDiv}${contentDiv}`;
       }
     };
 
@@ -489,7 +503,7 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addTransform("htmlMinifier", (content, outputPath) => {
     if (
-      process.env.NODE_ENV === "production" &&
+      (process.env.NODE_ENV === "production" || process.env.ELEVENTY_ENV === "prod") &&
       outputPath &&
       outputPath.endsWith(".html")
     ) {
@@ -497,6 +511,8 @@ module.exports = function (eleventyConfig) {
         useShortDoctype: true,
         removeComments: true,
         collapseWhitespace: true,
+        conservativeCollapse: true,
+        preserveLineBreaks: true,
         minifyCSS: true,
         minifyJS: true,
         keepClosingSlash: true,
@@ -516,9 +532,13 @@ module.exports = function (eleventyConfig) {
 
 
   eleventyConfig.addFilter("dateToZulu", function (date) {
-    if (!date) return "";
-    return new Date(date).toISOString("dd-MM-yyyyTHH:mm:ssZ");
+    try {
+      return new Date(date).toISOString("dd-MM-yyyyTHH:mm:ssZ");
+    } catch {
+      return "";
+    }
   });
+  
   eleventyConfig.addFilter("jsonify", function (variable) {
     return JSON.stringify(variable) || '""';
   });
@@ -537,22 +557,6 @@ module.exports = function (eleventyConfig) {
       closingSingleTag: "slash",
       singleTags: ["link"],
     },
-  });
-
-  eleventyConfig.on('eleventy.before', async ({ dir }) => {
-    const files = await fs.promises.readdir(dir.input, {recursive: true});
-    const markdownFiles = files.filter((file) => file.endsWith('.md'));
-    for (const file of markdownFiles) {
-      const content = await fs.promises.readFile(`${dir.input}/${file}`, 'utf-8');
-      const frontmatterRegex = /^---([\s\S]*?)---/m;
-      const match = content.match(frontmatterRegex);
-
-      if (match) {
-        const updatedFrontmatter = match[1].replace(/\\\|/g, '|');
-        const updatedContent = content.replace(match[0], `---${updatedFrontmatter}---`);
-        await fs.promises.writeFile(`${dir.input}/${file}`, updatedContent, 'utf-8');
-      }
-    }
   });
 
   userEleventySetup(eleventyConfig);
