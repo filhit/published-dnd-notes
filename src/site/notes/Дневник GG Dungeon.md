@@ -1,5 +1,5 @@
 ---
-{"campaign":"GG Dungeon","dg-publish":true,"dg-permalink":"gg-dungeon-journal","permalink":"/gg-dungeon-journal/","dgPassFrontmatter":true}
+{"campaign":"GG Dungeon","dg-publish":true,"dg-permalink":"gg-dungeon-journal","aliases":["Дневник ГГ Данжен"],"permalink":"/gg-dungeon-journal/","dgPassFrontmatter":true}
 ---
 
 
