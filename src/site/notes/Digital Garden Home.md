@@ -6,5 +6,6 @@
 [[Дневник Подземелий безумного мага\|Дневник Подземелий безумного мага]]
 [[Дневник GG Dungeon\|Дневник GG Dungeon]]
 [[Дневник The Dream of the Mountains\|Дневник The Dream of the Mountains]]
+[[Дневник Relics of the Forgotten Era\|Дневник Relics of the Forgotten Era]]
 [[Miami Files\|Miami Files]]
 [[Уаншоты\|Уаншоты]]
