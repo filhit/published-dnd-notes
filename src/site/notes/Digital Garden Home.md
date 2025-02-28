@@ -7,5 +7,6 @@
 [[Дневник GG Dungeon\|Дневник GG Dungeon]]
 [[Дневник The Dream of the Mountains\|Дневник The Dream of the Mountains]]
 [[Дневник Relics of the Forgotten Era\|Дневник Relics of the Forgotten Era]]
+[[Дневник Масок Ньярлахотепа\|Дневник Масок Ньярлахотепа]]
 [[Miami Files\|Miami Files]]
 [[Уаншоты\|Уаншоты]]
