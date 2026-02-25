@@ -1,4 +1,5 @@
 const fs = require("fs");
+const path = require("path");
 function userMarkdownSetup(md) {
   // The md parameter stands for the markdown-it instance used throughout the site generator.
   // Feel free to add any plugin you want here instead of /.eleventy.js
@@ -41,6 +42,65 @@ function userEleventySetup(eleventyConfig) {
       }
     }
   });
+
+  eleventyConfig.on('eleventy.before', async ({ dir }) => {
+    const inputDir = dir.input;
+    const notesDir = path.join(inputDir, 'notes');
+
+    const files = await fs.promises.readdir(notesDir, { recursive: true });
+
+    const foundLinks = new Set();
+    const markdownFiles = files.filter((f) => f.endsWith('.md'));
+
+    for (const file of markdownFiles) {
+      const content = await fs.promises.readFile(path.join(notesDir, file), 'utf-8');
+
+      const wikiLinkRegex = /\[\[([^#|\]\n]+)(?:[#|][^\]\n]*)?\]\]/g;
+      let match;
+      while ((match = wikiLinkRegex.exec(content)) !== null) {
+        // We remove backslashes so 'Рунарсон\' becomes 'Рунарсон'
+        let link = match[1]
+          .replace(/[\\]+$/g, '')
+          .replace(/\.md$/g, "")
+          .trim();
+
+        if (link) {
+          foundLinks.add(link);
+        }
+      }
+    }
+
+    const slugify = eleventyConfig.getFilter("slugify");
+
+    for (const link of foundLinks) {
+      if (!link.includes('://')) {
+
+        const slug = slugify(link);
+        const permalink = `/${slug}/`;
+        const stubPath = path.join(notesDir, `${link}.md`);
+
+        const exists = await fs.promises.stat(stubPath).catch(() => null);
+
+        if (!exists) {
+          const stubContent = `---
+title: "${link}"
+permalink: "${permalink}"
+tags: ["stub"]
+dg-publish: true
+---
+> [!info] Эта заметка ещё не написана
+> Этой страницы пока не существует, либо информация временно скрыта.
+>
+> Однако вы можете изучить **Граф связей** или заглянуть в раздел **Обратные ссылки** (Backlinks) ниже, чтобы понять, в каком контексте упоминается «${link}».
+`;
+
+          await fs.promises.writeFile(stubPath, stubContent, 'utf-8');
+          console.log(`[Stub Created] ${link}.md -> ${permalink}`);
+        }
+      }
+    }
+  });
 }
+
 exports.userMarkdownSetup = userMarkdownSetup;
 exports.userEleventySetup = userEleventySetup;
