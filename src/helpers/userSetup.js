@@ -10,18 +10,20 @@ function userEleventySetup(eleventyConfig) {
 
   const linkFilter = eleventyConfig.getFilter("link");
 
-  eleventyConfig.addFilter("link", function (str) {
+eleventyConfig.addFilter("link", function (str) {
     if (!str) return str;
 
     return str.replace(/\[\[(.*?)(?:\|(.*?))?\]\]/g, function (match, fileLink, linkTitle) {
-
+      
       if (fileLink.indexOf("],[") > -1 || fileLink.indexOf('"$"') > -1) {
         return match;
       }
 
+      const cleanedFileLink = fileLink.replace(/\.md\\+$/i, "");
+
       const normalizedLink = linkTitle
-        ? match
-        : `[[${fileLink}|${fileLink}]]`;
+        ? `[[${cleanedFileLink}|${linkTitle}]]`
+        : `[[${cleanedFileLink}|${cleanedFileLink}]]`;
 
       return linkFilter(normalizedLink);
     });
