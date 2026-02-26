@@ -10,7 +10,7 @@ function userEleventySetup(eleventyConfig) {
 
   const linkFilter = eleventyConfig.getFilter("link");
 
-eleventyConfig.addFilter("link", function (str) {
+  eleventyConfig.addFilter("link", function (str) {
     if (!str) return str;
 
     return str.replace(/\[\[(.*?)(?:\|(.*?))?\]\]/g, function (match, fileLink, linkTitle) {
