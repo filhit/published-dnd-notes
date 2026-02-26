@@ -22,4 +22,22 @@ body {
 
     --font-title: 'Open Sans', cursive;
     --h1-size: 2.5em;
+
+    label[for="graph-depth"] {
+        color: transparent;
+        position: relative;
+        display: inline-block;
+        min-width: 50px;
+    }
+
+    label[for="graph-depth"]::after {
+        content: "Глубина";
+        color: #94a3b8;
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        visibility: visible;
+        font-size: 0.9rem;
+    }
 }
