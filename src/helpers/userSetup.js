@@ -30,6 +30,25 @@ function userEleventySetup(eleventyConfig) {
   eleventyConfig.on('eleventy.before', async ({ dir }) => {
     const files = await fs.promises.readdir(dir.input, { recursive: true });
     const markdownFiles = files.filter((file) => file.endsWith('.md'));
+
+    for (const file of markdownFiles) {
+      const p = path.join(dir.input, file);
+      let content = await fs.promises.readFile(p, 'utf-8');
+
+      const cleaned = content.replace(
+        /\[\[([^\]|]+?)\.md(\\*\|[^\]]+?)\]\]/g,
+        '[[$1$2]]'
+      );
+
+      if (cleaned !== content) {
+        await fs.promises.writeFile(p, cleaned, 'utf-8');
+      }
+    }
+  });
+
+  eleventyConfig.on('eleventy.before', async ({ dir }) => {
+    const files = await fs.promises.readdir(dir.input, { recursive: true });
+    const markdownFiles = files.filter((file) => file.endsWith('.md'));
     for (const file of markdownFiles) {
       const content = await fs.promises.readFile(`${dir.input}/${file}`, 'utf-8');
       const frontmatterRegex = /^---([\s\S]*?)---/m;
