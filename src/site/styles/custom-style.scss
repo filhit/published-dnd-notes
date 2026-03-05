@@ -40,4 +40,10 @@ body {
         visibility: visible;
         font-size: 0.9rem;
     }
+
+    .internal-link[data-note-icon="stub"],
+    .backlink[data-note-icon="stub"] {
+        color: #d08770;
+        opacity: 0.7;
+    }
 }
