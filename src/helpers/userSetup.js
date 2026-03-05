@@ -106,8 +106,8 @@ title: "${link}"
 permalink: "${permalink}"
 tags: ["stub"]
 dg-publish: true
-dg-note-icon: 1
-dg-hide: true
+noteIcon: "stub"
+hide: true
 ---
 > [!info] Эта заметка ещё не написана
 > Этой страницы пока не существует, либо информация временно скрыта.
