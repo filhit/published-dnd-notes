@@ -6,6 +6,8 @@ function userComputed(data) {
     result.previousSession = data["previous-session"]
   if (data["next-session"])
     result.nextSession = data["next-session"]
+  if (data["aliases"])
+    result.aliases = data["aliases"]
   return result;
 }
 

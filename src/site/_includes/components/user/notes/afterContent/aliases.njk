@@ -1,0 +1,10 @@
+{% if userComputed.aliases %}
+<div class="aliases">
+  <h3>Другие имена</h3>
+  <ul>
+    {% for alias in userComputed.aliases %}
+      <li>{{ alias }}</li>
+    {% endfor %}
+  </ul>
+</div>
+{% endif %}
