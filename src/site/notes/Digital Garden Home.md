@@ -9,5 +9,4 @@
 [[Дневник Relics of the Forgotten Era\|Дневник Relics of the Forgotten Era]]
 [[Дневник Масок Ньярлахотепа\|Дневник Масок Ньярлахотепа]]
 [[Miami Files\|Miami Files]]
-[[City of Mist\|City of Mist]]
 [[Уаншоты\|Уаншоты]]
